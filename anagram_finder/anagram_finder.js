@@ -4,13 +4,18 @@ const AnagramFinder = function (word) {
 
 AnagramFinder.prototype.findAnagrams = function (otherWords) {
 
-    return otherWords.filter((otherWord) => {
-        return otherWord.split("").every((letter) => {
-            return this.word.includes(letter);
-        });
+    const foundWords = otherWords.filter((otherWord) => {
+      return otherWord.split("").sort().join(',') == this.word.sort().join(',');
     });
+    
+    return foundWords;
 
 };
 
+
+
+
 module.exports = AnagramFinder;
 
+// for otherWord in otherWords:
+// filter if sorted array of letters is equal to sorted array of letters
