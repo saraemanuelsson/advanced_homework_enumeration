@@ -7,7 +7,11 @@ IsogramFinder.prototype.wordToCharactersArray = function() {
 };
 
 IsogramFinder.prototype.isIsogram = function () {
+    
+    return this.wordToCharactersArray().every((character, i, array) => {
+        return (array.indexOf(character) === i)
+    });
 
-}
+};
 
 module.exports = IsogramFinder;
